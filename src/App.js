@@ -1,10 +1,19 @@
-import React, { Component } from 'react';
+import React, {Suspense} from 'react';
 import './App.css';
+import Routes from './routes'
+import {
+  Header
+} from './components';
+import ScrollToTop from './ScrollToTop'
 
-class App extends Component {
-  render() {
-    return <div className='App'>Hello World</div>;
-  }
+const App = (props) => {
+  console.log("PROPS ", props);
+  return <ScrollToTop>
+      <Suspense fallback={<h1>Loading</h1>}>
+        <Header />
+        <Routes />
+      </Suspense>
+    </ScrollToTop>
 }
 
 export default App;
